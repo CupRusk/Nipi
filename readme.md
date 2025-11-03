@@ -48,8 +48,7 @@ The program supports the following commands:
 ```
 
 ```bash
-./nipi
-help
+./nipi help
 # Output:
 # All available operations:
 #    1. list - Display all installed items
@@ -57,8 +56,7 @@ help
 ```
 
 ```bash
-./nipi
-help -s
+./nipi help -s
 # Output with 2-second delay between lines
 ```
 
