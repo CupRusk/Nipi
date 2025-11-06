@@ -14,7 +14,7 @@ proc create_json*(nameFile: string) =
   if lower_name.len == 0:
     raise newException(ValueError, "Сначала вызови create_venv()!")
 
-  let currentPath = currentDir() / lower_name / (nameFile & ".json")
+  let currentPath = getCurrentDir() / lower_name / (nameFile & ".json")
   writeFile(currentPath, "{\n}")
   echo "Created file: " & currentPath
 

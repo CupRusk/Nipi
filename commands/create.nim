@@ -1,4 +1,4 @@
-from create_proj/serviceCreate import init_venv, create_bash
+import ./create_proj/ServiceCreate as cp
 import os, strutils
 
 proc printf(args: string) =
@@ -7,7 +7,7 @@ proc printf(args: string) =
 
 proc new_proj*() =
   printf("Create...\n")
-  os.sleep(500)
+  sleep(500)
 
   printf("Name project: ")
   let name_proj = readLine(stdin)
@@ -20,4 +20,5 @@ proc new_proj*() =
   var compSplit = comp.split(",")
   echo "Selected compilation modes: ", compSplit.join(", ")
 
-  init_venv(name_proj); create_bash(comp);
+  cp.init_venv(name_proj)
+  cp.create_bash(comp)

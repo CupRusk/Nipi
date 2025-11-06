@@ -17,7 +17,7 @@ paths.json
 }]#
 import os, strutils
 
-from venv import create_venv, create_json
+from create_venv/venv import create_venv, create_json
 
 proc init_venv*(name_proj: string) =
   create_venv(name_proj)
@@ -27,7 +27,7 @@ proc init_venv*(name_proj: string) =
 proc create_bash*(compilation: string) =
   let currentPath = joinPath(getCurrentDir(), "build.bash") # <-- Path для bash
   let currentPathMain = joinPath(getCurrentDir(), "main.nim") # <-- Path для Нового nim
-  let parts = compilation.split(',').mapIt(it.strip()) # <-- разделяем всё, смотрим по индексам
+  var parts = compilation.split(',') # <-- разделяем всё, смотрим по индексам
 
   writeFile(currentPathMain, "# TODO UR CODE:>")
 
