@@ -1,10 +1,20 @@
-import os, unicode
+import os, strutils
 
-proc create_venv(name: string) =
-  var name_folder = "."
-  name_folder = name_folder & name
-  let lower_name = name_folder.toLower()
-  createDir(lower_name)
-  
+var lower_name* = "" 
 
-# create_venv("Венв") Тест
+proc create_venv*(name: string) =
+  lower_name = ("." & name).toLower()
+  if not dirExists(lower_name):
+    createDir(lower_name)
+    echo "Created directory: " & lower_name
+  else:
+    echo "Directory already exists: " & lower_name
+
+proc create_json*(nameFile: string) =
+  if lower_name.len == 0:
+    raise newException(ValueError, "Сначала вызови create_venv()!")
+
+  let currentPath = currentDir() / lower_name / (nameFile & ".json")
+  writeFile(currentPath, "{\n}")
+  echo "Created file: " & currentPath
+
