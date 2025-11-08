@@ -1,40 +1,31 @@
-#[ Сначало создаём папку, после в нём два файла, оба json.
- один - пути в библиотеки
- второй - названия всех библиотек, для nipi list
- Что если у библиотеки есть дополнительные зависимости?
-
-requi.json
-{
-  "hueglotAPI@2.2.0": ["human@1.0"],
-  "human@1.0": []
-  "somelib@1.0": []
-}
-paths.json
-{
-  "hueglotAPI@2.2.0": "/usr/local/nipi/libs/hueglotAPI",
-  "human@1.0": "/usr/local/nipi/libs/human1.0",
-  "someLib@1.0": "/usr/local/nipi/libs/someLib"
-}]#
-import os, strutils
-
+import os, strutils, terminal
 from create_venv/venv import create_venv, create_json
 
-proc init_venv*(name_proj: string) =
-  create_venv(name_proj)
-  create_json("requi")
-  create_json("paths")
+proc init_venv*(name_proj: string = "venv") =
+  try:
+    create_venv(name_proj)
+  except:
+    styledEcho(fgRed, "Error: Venv can't be created")
+
+  try:
+    create_json("requi.json")
+    create_json("paths.json")
+  except:
+    styledEcho(fgRed, "Error: JSON can't be created")
+
 
 proc create_bash*(compilation: string) =
-  let currentPath = joinPath(getCurrentDir(), "build.bash") # <-- Path для bash
-  let currentPathMain = joinPath(getCurrentDir(), "main.nim") # <-- Path для Нового nim
-  var parts = compilation.split(',') # <-- разделяем всё, смотрим по индексам
+  let currentPath = joinPath(getCurrentDir(), "build.bash")
+  let currentPathMain = joinPath(getCurrentDir(), "main.nim")
 
-  writeFile(currentPathMain, "# TODO UR CODE:>")
+  if not fileExists(currentPathMain):
+    writeFile(currentPathMain, "# TODO: your code here:3\n")
 
+  var parts = compilation.split(',')
   var cmds: seq[string] = @[]
 
   for p in parts:
-    case p
+    case p.strip()
     of "1":
       cmds.add("nim c -o:main main.nim")
     of "2":
@@ -51,9 +42,9 @@ proc create_bash*(compilation: string) =
     else:
       discard
 
-  # записываем все команды в build.bash (по умолчанию перезапись)
-  if cmds.len > 0:
-    writeFile(currentPath, cmds.join("\n") & "\n")
-  else:
-    writeFile(currentPath, "nim c -o:main main.nim\n")
+  if cmds.len == 0:
+    styledEcho(fgYellow, "Warning: empty compiler list, using default")
+    cmds.add("nim c -o:main main.nim")
 
+  writeFile(currentPath, cmds.join("\n") & "\n")
+  styledEcho(fgGreen, &"build.bash created successfully ({cmds.len} command(s))")
