@@ -1,6 +1,5 @@
 import terminal
 # Когда будет добавляться сервер - добавить новуб функцию для Has_new
-var has_new: bool = true
 proc check_version*(has_new: bool) = 
     if has_new:
         styledEcho(fgGreen, "Version: 0.1v")

@@ -4,6 +4,7 @@ import terminal
 # Команды
 import ../commands/help
 import ../commands/create
+import ../commands/version
 
 proc parse*(arr_input: seq[string]) =
   case arr_input.len
@@ -20,6 +21,8 @@ proc parse*(arr_input: seq[string]) =
         help(false)
     of "create":
       new_proj()
+    of "--version":
+      check_version(true)
     else:
       styledEcho(fgRed, "Операция не существует :3")
       sleep(1000)
