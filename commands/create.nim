@@ -27,5 +27,5 @@ proc new_proj*() =
     echo "Selected compilation modes: ", compSplit.join(", ")
     cp.create_bash(comp)
   else:
-    sstyledEcho(fgRed, "Never")
+    styledEcho(fgRed, "Never")
 

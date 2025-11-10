@@ -1,7 +1,7 @@
 import os, strutils, terminal
 from create_venv/venv import create_venv, create_json
 
-proc init_venv*(name_proj: string = "venv"): bool =
+proc init_venv*(name_proj: string = "venv") =
   try:
     if dirExists(name_proj):
       styledEcho(fgYellow, "Notice: venv already exists: " & name_proj)
@@ -55,4 +55,5 @@ proc create_bash*(compilation: string) =
     cmds.add("nim c -o:main main.nim")
 
   writeFile(currentPath, cmds.join("\n") & "\n")
-  styledEcho(fgGreen, &"build.bash created successfully ({cmds.len} command(s))")
+  styledEcho(fgGreen, "build.bash created successfully (" & $cmds.len & " command(s))")
+
