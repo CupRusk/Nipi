@@ -1,90 +1,95 @@
-# `nipi` — Mini CLI Utility in Nim
+## 🧠 Nipi — Command-line Utility for Developers
 
-`nipi` is a lightweight command-line utility written in Nim for managing mini-projects through simple CLI commands.
+> *"Every great tool starts with a simple command."*
 
----
-
-## 🔹 Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/nipi.git
-cd nipi
-```
-
-2. Make sure Nim is installed:
-
-```bash
-nim -v
-```
-
-3. Compile and run:
-
-```bash
-nim c -r nipi.nim
-```
-
-> The `-r` flag compiles and immediately runs the program.
+Nipi is a modular, evolving command-line interface (CLI) written in **Nim**, designed to automate project creation, environment setup, and provide a foundation for future developer tools.
+It’s not just a utility — it’s the beginning of a system that grows with the coder.
 
 ---
 
-## 🔹 Usage
+### ⚙️ Version
 
-The program supports the following commands:
+**Nipi 2.0.8**
+Platform: Linux `amd64`
+Language: Nim 2.x
 
-| Command         | Description                                       |
-| --------------- | ------------------------------------------------- |
-| `list`          | Display all installed projects/operations         |
-| `create <name>` | Create a new project with the name `<name>`       |
-| `help`          | Show help with available commands                 |
-| `help -s`       | Show help step by step with a delay between lines |
+---
 
-### Examples
+### 📦 Features
 
-```bash
-./nipi
-# Output: Operation does not exist :3
+* **Project Creation:** quickly generate project skeletons and structures.
+* **Virtual Environments:** simple integration with Nim `venv` creation.
+* **Parser + Lexer:** custom-built parsing core — the foundation for scripting or configuration support.
+* **Command System:** modular architecture — each command is its own Nim module.
+* **Readable, Extendable, Lightweight.**
+
+---
+
+### 🧩 Project Structure
+
 ```
-
-```bash
-./nipi help
-# Output:
-# All available operations:
-#    1. list - Display all installed items
-#    2. create <name> - Create a new project
-```
-
-```bash
-./nipi help -s
-# Output with 2-second delay between lines
+Nipi/
+ ├─ Nipi.nim                # main CLI entry
+ ├─ commands/
+ │   ├─ create.nim          # create project command
+ │   ├─ help.nim            # help and usage info
+ │   ├─ version.nim         # version display
+ │   └─ create_proj/
+ │       ├─ ServiceCreate.nim
+ │       └─ create_venv/
+ │           └─ venv.nim
+ └─ parser_lexer/
+     ├─ Lexer.nim           # tokenizer
+     └─ parser.nim          # syntax parser
 ```
 
 ---
 
-## 🔹 Features
+### 🚀 Usage
 
-* **Colorful output** using `terminal.styledEcho`
-* Minimal CLI with argument parsing
-* Simple structure, easy to extend with new commands
+Compile and run directly with **Nim**:
+
+```bash
+nim c -r Nipi.nim help
+nim c -r Nipi.nim create myproject
+nim c -r Nipi.nim version
+```
+
+To create a project with virtual environment:
+
+```bash
+nim c -r Nipi.nim create
+```
 
 ---
 
-## 🔹 Project Structure
+### 🧰 Requirements
 
-```
-nipi/
-├─ Lexer.nim       # Module for tokenizing commands
-├─ main.nim        # Main executable file
-├─ README.md       # Documentation
-```
+* **Nim compiler:** v2.0.8 or higher
+* Linux `amd64` environment *(Windows support planned)*
 
 ---
 
-## 🔹 Dependencies
+### 🧩 Philosophy
 
-* Nim (latest version recommended)
-* `terminal` module (part of Nim standard library)
-* `os` module (for file system operations and delays)
+Nipi started as a small developer utility — but the goal is larger:
+to create a **unified environment for coding, automating, and experimenting**.
 
+Each module in Nipi represents a concept: *creation*, *help*, *versioning*, *interpretation*.
+Together, they’re the skeleton of a future system that could evolve into a **package manager**, a **local dev shell**, or something entirely new.
 
+> The first line of every project is not just code — it’s intent.
+> Nipi captures that intent and gives it structure.
+
+---
+
+### 🔧 Future Plans
+
+* Add install, delete, certificate commands
+* Add support for Git repositories (for now, no custom servers)
+* Windows compatibility and packaging system
+---
+
+### 📄 License
+
+GPL License - used open-source software licenses that grant users the freedom to run, study, share, and modify softwar
