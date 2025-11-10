@@ -12,7 +12,7 @@ proc new_proj*() =
   printf("Name project: ")
   let name_proj = readLine(stdin)
   printf("\n")
-  if len(name_proj) == 0:
+  if name_proj.len != 0:
     cp.init_venv(name_proj)
   else:
     cp.init_venv("venv")

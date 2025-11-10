@@ -4,9 +4,9 @@ import terminal
 proc help*(show_slow: bool) =
   # Определяем данные как обычный массив строк
   let operations = @[
-    "   1. list - Вывод всего, что вы установили",
-    "   2. create <name> - Создание проекта",
-    "   3. help - вывод всех возможных комманд"
+    "   1. list - All installed",
+    "   2. create - Create project",
+    "   3. help - All commands"
   ]
 
   styledEcho fgBlue, "Все возможные операции:"

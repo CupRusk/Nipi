@@ -1,6 +1,7 @@
 import os
-proc tokens*(input: string): seq[string] = 
-    return commandLineParams()
+proc tokens*(): seq[string] = 
+    let all = commandLineParams()
+    return all
 
 
     

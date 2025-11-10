@@ -13,7 +13,7 @@ proc parse*(arr_input: seq[string]) =
     help(false)
   else:
     case arr_input[0]
-    of "help":
+    of "--help":
       if arr_input.len > 1 and arr_input[1] == "-s":
         help(true)
       else:

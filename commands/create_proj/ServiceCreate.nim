@@ -1,18 +1,26 @@
 import os, strutils, terminal
 from create_venv/venv import create_venv, create_json
 
-proc init_venv*(name_proj: string = "venv") =
+proc init_venv*(name_proj: string = "venv"): bool =
   try:
-    create_venv(name_proj)
-  except:
-    styledEcho(fgRed, "Error: Venv can't be created")
+    if dirExists(name_proj):
+      styledEcho(fgYellow, "Notice: venv already exists: " & name_proj)
 
-  try:
-    create_json("requi.json")
-    create_json("paths.json")
-  except:
-    styledEcho(fgRed, "Error: JSON can't be created")
+    try:
+      create_venv(name_proj)
+      styledEcho(fgGreen, "✓ Venv создан: " & name_proj)
+    except OSError as e:
+      styledEcho(fgRed, "✗ Error venv: " & e.msg)
 
+    try:
+      create_json("requi.json")
+      create_json("paths.json")
+      styledEcho(fgGreen, "✓ Created")
+    except OSError as e:
+      styledEcho(fgRed, "✗ Can`t create JSON: " & e.msg)
+
+  except OSError as e:
+    styledEcho(fgRed, "Error: " & e.msg)
 
 proc create_bash*(compilation: string) =
   let currentPath = joinPath(getCurrentDir(), "build.bash")
