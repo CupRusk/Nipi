@@ -1,6 +1,6 @@
 ## 🧠 Nipi — Command-line Utility for Developers
 [![Join to the server][badge-nipi-discord]][nipi-discord]
-[![Platform with create][badge-nim]
+[![Platform with create][badge-nim]]
 
 [badge-nim]: https://images.seeklogo.com/logo-png/43/2/nim-logo-png_seeklogo-435673.png
 
