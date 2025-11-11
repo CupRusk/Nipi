@@ -1,12 +1,10 @@
 ## 🧠 Nipi — Command-line Utility for Developers
-[![Join to the server][badge-nipi-discord]][nipi-discord]
-[![Platform with create][badge-nim]]
+[![Join the server][badge-nipi-discord]][nipi-discord]
+![Built with Nim][badge-nim]
 
-[badge-nim]: https://images.seeklogo.com/logo-png/43/2/nim-logo-png_seeklogo-435673.png
-
+[badge-nim]: https://img.shields.io/badge/Built%20with-Nim-FFE953?logo=nim&logoColor=000000
 [badge-nipi-discord]: https://img.shields.io/discord/1437733240931745874?label=Discord&logo=discord&color=2C2F33
 [nipi-discord]: https://discord.gg/aKJepyne
-
 > *"Every great tool starts with a simple command."*
 
 Nipi is a modular, evolving command-line interface (CLI) written in **Nim**, designed to automate project creation, environment setup, and provide a foundation for future developer tools.
