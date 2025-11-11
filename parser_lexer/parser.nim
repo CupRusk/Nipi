@@ -20,7 +20,7 @@ proc parse*(arr_input: seq[string]) =
       else:
         help(false)
     of "create":
-      new_proj()
+        new_proj()
     of "--version":
       check_version(true)
     else:

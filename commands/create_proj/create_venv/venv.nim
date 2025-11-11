@@ -10,11 +10,21 @@ proc create_venv*(name: string) =
   else:
     echo "Directory already exists: " & lower_name
 
+  let binDir = lower_name / "bin"
+  if not dirExists(binDir):
+    createDir(binDir)
+    echo "Created directory: " & binDir
+  else:
+    echo "Directory already exists: " & binDir
+
 proc create_json*(nameFile: string) =
   if lower_name.len == 0:
     raise newException(ValueError, "Сначала вызови create_venv()!")
 
-  let currentPath = getCurrentDir() / lower_name / (nameFile & ".json")
-  writeFile(currentPath, "")
-  echo "Created file: " & currentPath
+  var fileName = nameFile
+  if not nameFile.endsWith(".json"):
+    fileName = nameFile & ".json"
 
+  let currentPath = getCurrentDir() / lower_name / "bin" / fileName
+
+  writeFile(currentPath, "{\n}")

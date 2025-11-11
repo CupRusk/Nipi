@@ -9,7 +9,7 @@ proc new_proj*() =
   print("Create...\n")
   sleep(500)
 
-  print("Name project: ")
+  print("Name proj: ")
   let name_proj = readLine(stdin)
   print("\n")
 

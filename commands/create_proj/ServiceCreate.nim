@@ -8,13 +8,14 @@ proc init_venv*(name_proj: string = "venv") =
 
     try:
       create_venv(name_proj)
-      styledEcho(fgGreen, "✓ Venv создан: " & name_proj)
+      styledEcho(fgGreen, "✓ Venv created: " & name_proj)
     except OSError as e:
       styledEcho(fgRed, "✗ Error venv: " & e.msg)
 
     try:
       create_json("requi.json")
       create_json("paths.json")
+      create_json("meta_project.json")
       styledEcho(fgGreen, "✓ Created")
     except OSError as e:
       styledEcho(fgRed, "✗ Can`t create JSON: " & e.msg)
