@@ -1,18 +1,17 @@
-import osproc, strutils, terminal
-from ../create_proj/serviceCreate/ import venv_create # <-- просто переменная, что-бы подтвердить что venv сущесвтует. Пока единтсвенная защита
+import osproc, strutils, terminal, os
+from ../../custom_tools/Find_path_any_files import findAnyFiles
 
 proc has_venv(): bool =
-  # поиск - ищет по папкам с точкой, ищет в них /bin/meta.json
-  
-
+  let paths = findAnyFiles(getCurrentDir(), ".json")
+  return paths.len > 0
 
 proc init_git*(path: string) = 
   if has_venv():
-    let command = "git init" & path
+    let command = "git init " & path
     let (outp, exitCode) = execCmdEx(cmd)
     if exitCode == 0:
         styledEcho(fgGreen, "Git initialized in: " & path)
     else:
         styledEcho(fgRed, "Error: " & outp)
   else: 
-    styledEcho(fgRed, "Bro, 'nipi create venv' please")
+    styledEcho(fgRed, "Bro, 'nipi create' please")
