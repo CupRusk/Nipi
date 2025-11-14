@@ -4,9 +4,10 @@ import terminal
 proc help*(show_slow: bool) =
   # Определяем данные как обычный массив строк
   let operations = @[
-    "   1. list - All installed",
+    "   1. --version - version NIPI",
     "   2. create - Create project",
-    "   3. help - All commands"
+    "   3. --git <command> - git command in nipi",
+    "   4. --help - All commands"
   ]
 
   styledEcho fgBlue, "Все возможные операции:"

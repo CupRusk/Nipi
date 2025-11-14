@@ -8,7 +8,7 @@ proc has_venv(): bool =
 proc init_git*(path: string) = 
   if has_venv():
     let command = "git init " & path
-    let (outp, exitCode) = execCmdEx(cmd)
+    let (outp, exitCode) = execCmdEx(command)
     if exitCode == 0:
         styledEcho(fgGreen, "Git initialized in: " & path)
     else:

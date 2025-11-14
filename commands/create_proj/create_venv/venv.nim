@@ -19,7 +19,7 @@ proc create_venv*(name: string) =
 
 proc create_json*(nameFile: string) =
   if lower_name.len == 0:
-    raise newException(ValueError, "Сначала вызови create_venv()!")
+    raise newException(ValueError, "Start create_venv()!!!")
 
   var fileName = nameFile
   if not nameFile.endsWith(".json"):
