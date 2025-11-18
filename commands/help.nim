@@ -5,7 +5,7 @@ proc help*(show_slow: bool) =
   # Определяем данные как обычный массив строк
   let operations = @[
     "   1. --version - version NIPI",
-    "   2. create - Create project",
+    "   2. create_venv - Create project",
     "   3. --git <command> - git command in nipi",
     "   4. --help - All commands"
   ]
