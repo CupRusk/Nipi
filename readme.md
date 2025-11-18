@@ -4,7 +4,7 @@
 
 [badge-nim]: https://img.shields.io/badge/Built%20with-Nim-FFE953?logo=nim&logoColor=000000
 [badge-nipi-discord]: https://img.shields.io/discord/1437733240931745874?label=Discord&logo=discord&color=2C2F33
-[nipi-discord]: https://discord.gg/aKJepyne
+[nipi-discord]: https://discord.gg/5pzef5EajE
 > *"Every great tool starts with a simple command."*
 
 Nipi is a modular, evolving command-line interface (CLI) written in **Nim**, designed to automate project creation, environment setup, and provide a foundation for future developer tools.
