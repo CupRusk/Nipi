@@ -34,18 +34,31 @@ Language: Nim 2.x
 
 ```
 Nipi/
- ├─ Nipi.nim                # main CLI entry
+ ├─ nipi.nim                  # main CLI entry
  ├─ commands/
- │   ├─ create.nim          # create project command
- │   ├─ help.nim            # help and usage info
- │   ├─ version.nim         # version display
- │   └─ create_proj/
+ │   ├─ create.nim            # create project command
+ │   ├─ help.nim              # help and usage info
+ │   ├─ version.nim           # version display
+ │   ├─ commands.txt          # (похоже документация/список команд)
+ │   ├─ git_integr/           # команды для работы с Git
+ │   │   ├─ any_command.nim
+ │   │   ├─ clone_git.nim
+ │   │   ├─ commit_git.nim
+ │   │   ├─ init_git.nim
+ │   │   └─ parser_for_git.nim
+ │   └─ create_proj/          # create subproject
  │       ├─ ServiceCreate.nim
  │       └─ create_venv/
  │           └─ venv.nim
- └─ parser_lexer/
-     ├─ Lexer.nim           # tokenizer
-     └─ parser.nim          # syntax parser
+ ├─ parser_lexer/
+ │   ├─ Lexer.nim             # tokenizer
+ │   └─ parser.nim            # syntax parser
+ ├─ custom_tools/             # твои вспомогательные скрипты
+ ├─ test/                     # тестовые/экспериментальные файлы
+ │   ├─ create.json
+ │   └─ writeJson.nim
+ ├─ readme.md
+ └─ readme-ru.md
 ```
 
 ---
@@ -56,7 +69,7 @@ Compile and run directly with **Nim**:
 
 ```bash
 nim c -r Nipi.nim help
-nim c -r Nipi.nim create myproject
+nim c -r Nipi.nim create
 nim c -r Nipi.nim version
 ```
 
