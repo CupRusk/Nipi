@@ -27,4 +27,4 @@ proc create_json*(nameFile: string) =
 
   let currentPath = getCurrentDir() / lower_name / "bin" / fileName
 
-  writeFile(currentPath, "{\n}")
+  writeFile(currentPath, "// nipi_json {\n}")
