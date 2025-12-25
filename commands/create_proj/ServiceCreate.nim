@@ -1,6 +1,12 @@
 import os, strutils, terminal
 from create_venv/venv import create_venv, create_json
 
+type
+  InitVenvResult* = object
+    venvCreated: bool
+    jsonCreated: bool
+
+
 proc init_venv*(name_proj: string = "venv") =
   try:
     if dirExists(name_proj):
@@ -58,3 +64,5 @@ proc create_bash*(compilation: string) =
   writeFile(currentPath, cmds.join("\n") & "\n")
   styledEcho(fgGreen, "build.bash created successfully (" & $cmds.len & " command(s))")
 
+proc connect_lib(name):
+  discard
