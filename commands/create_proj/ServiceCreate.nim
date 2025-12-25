@@ -1,6 +1,12 @@
 import os, strutils, terminal
 from create_venv/venv import create_venv, create_json
 
+type
+  InitVenvResult* = object
+    venvCreated: bool
+    jsonCreated: bool
+
+
 proc init_venv*(name_proj: string = "venv") =
   try:
     if dirExists(name_proj):
@@ -59,8 +65,4 @@ proc create_bash*(compilation: string) =
   styledEcho(fgGreen, "build.bash created successfully (" & $cmds.len & " command(s))")
 
 proc connect_lib(name):
-  """
-    Нам нужно в json добавлять library.
-    примерный стандарт как должна выглядить либа
-  """
   discard
