@@ -58,3 +58,9 @@ proc create_bash*(compilation: string) =
   writeFile(currentPath, cmds.join("\n") & "\n")
   styledEcho(fgGreen, "build.bash created successfully (" & $cmds.len & " command(s))")
 
+proc connect_lib(name):
+  """
+    Нам нужно в json добавлять library.
+    примерный стандарт как должна выглядить либа
+  """
+  discard

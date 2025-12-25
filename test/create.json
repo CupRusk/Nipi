@@ -1,1 +1,8 @@
-// nipi-json
+// nipi-jso
+
+{
+    "random-lib": {
+        "vers": "0.1v",
+        "depend": ["cmath", "biba"]
+    }
+}
